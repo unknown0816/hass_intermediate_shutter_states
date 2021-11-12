@@ -1,0 +1,14 @@
+homeassistant:
+  customize_domain:
+    cover:
+      device_class: shutter
+      templates:
+        icon: >
+          if (state == 'opening') return 'mdi:arrow-up-box';
+          if (state == 'closing') return 'mdi:arrow-down-box';
+          if (attributes.current_position == 0) return 'ci:window-shutter-full';
+          if (attributes.current_position > 74) return 'mdi:window-shutter-open';
+          if (attributes.current_position > 49) return 'ci:window-shutter-2';
+          if (attributes.current_position > 24) return 'ci:window-shutter-3';
+          return 'mdi:window-shutter';
+
